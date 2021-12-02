@@ -18,11 +18,26 @@ Bbot, or _Balancing Robot_, is a self-balancing autonomous robot project. Our go
 
 ### Dependencies 
 - [ROS] : An open-source robot framework. (**Version == Noetic**)
-- [Trajectory controller](http://wiki.ros.org/joint_trajectory_controller) : Controller for executing joint-space trajectories.
+- [ros_control](http://wiki.ros.org/ros_control) : ROS control interface.
 - [Twist mux](http://wiki.ros.org/twist_mux) : Twist multiplexer, which multiplex several velocity commands (topics) and allows to priorize or disable them (locks).
 - [Teleop twist keyboard](http://wiki.ros.org/teleop_twist_keyboard) : Generic keyboard teleop for twist robots.
 - [BIR Marker Localization](https://github.com/Brazilian-Institute-of-Robotics/bir_marker_localization) : This package was made to help you find your robot with a marker. (**Clone into your src folder**)
 - [Py trees](https://github.com/splintered-reality/py_trees) : PyTrees is a python implementation of behaviour trees designed to facilitate the rapid development of medium sized decision making engines for use in fields like robotics.
+- [Robot localization](http://wiki.ros.org/robot_localization) : Provides nonlinear state estimation through sensor fusion of an abritrary number of sensors.
+- [Navigation](http://wiki.ros.org/navigation) : ROS Navigation-Stack
+- [Gmapping](http://wiki.ros.org/gmapping) : SLAM Gmapping for ROS
+- [Move_base_flex](http://wiki.ros.org/move_base_flex) : Move Base Flex (MBF) is a backwards-compatible replacement for move_base.
+- [Moveback Recovery](https://github.com/uos/mbf_recovery_behaviors) : Recovery behavior for navigation that moves the robot backwards.
+
+Install dependencies by running:
+
+    $ sudo apt install ros-noetic-py-trees* ros-noetic-navigation ros-noetic-gmapping  ros-noetic-robot-localization
+
+    $ git clone https://github.com/magazino/move_base_flex.git
+
+    $ git clone https://github.com/uos/mbf_recovery_behaviors.git
+
+    $ git clone https://github.com/Brazilian-Institute-of-Robotics/bir_marker_localization.git
 
 # **Table of Contents**
 - [**bir_bbot**](#bir_bbot)
@@ -78,7 +93,7 @@ Just Run
 
 	$ roslaunch bbot_gazebo bbot_gazebo.launch rviz:=true
 
-For move Bbot with a keyboard, use:
+In order to move Bbot with a keyboard, use:
 
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=bbot/mobile_base_controller/cmd_vel
 
