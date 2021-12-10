@@ -40,16 +40,15 @@ Install dependencies by running:
     $ git clone https://github.com/Brazilian-Institute-of-Robotics/bir_marker_localization.git
 
 # **Table of Contents**
-- [**bir_bbot**](#bir_bbot)
+- [bir_bbot - BIR Balancing Robot](#bir_bbot---bir-balancing-robot)
 - [**Purpose of the Project**](#purpose-of-the-project)
     - [Supported Versions](#supported-versions)
     - [Dependencies](#dependencies)
+- [**Table of Contents**](#table-of-contents)
 - [**File System**](#file-system)
 - [**Installation**](#installation)
-	- [Building from Source:](#building-from-source)
-	- [Example of Usage](#example-of-usage)
-        - [Simulation](#simulation)
-        - [Real](#real)
+    - [Building from Source:](#building-from-source)
+  - [Example of Usage](#example-of-usage)
 - [**License**](#license)
 - [**Bugs & Feature Requests**](#bugs--feature-requests)
 
@@ -61,6 +60,7 @@ Install dependencies by running:
 - [bbot_description](https://github.com/Brazilian-Institute-of-Robotics/bir_bbot-simulation/tree/simulation/bbot_description) : Defines the Bbot URDF, Rviz and meshes.
 - [bbot_gazebo](https://github.com/Brazilian-Institute-of-Robotics/bir_bbot-simulation/tree/simulation/bbot_gazebo) : Is the gazebo package for simulate the robot, sensors and the world objects.
 - [bbot_perception](https://github.com/Brazilian-Institute-of-Robotics/bir_bbot-simulation/tree/simulation/bbot_perception) : The package for visual process.
+- [bbot_navigation](https://github.com/Brazilian-Institute-of-Robotics/bir_bbot-simulation/tree/simulation/bbot_navigation) : Launches gmapping and robot_localization for odometry and move_base_flex with a behavior tree for autonomous navigation.
 
 # **Installation**
 
