@@ -1,0 +1,55 @@
+bbot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100  
+  
+  # Position Controllers ---------------------------------------      
+  base2right_top_leg_position_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints: 
+      - base2right_top_leg
+    gains:
+      base2right_top_leg: {p: 100.0, i: 0.1, d: 0.01} #10 0.1 0.01
+    constraints:
+      goal_time: 0.0
+
+  base2left_top_leg_position_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints: 
+      - base2left_top_leg
+    gains:
+      base2left_top_leg: {p: 100.0, i: 0.1, d: 0.01}
+    constraints:
+      goal_time: 0.0
+  
+  right_top_leg2bottom_leg_position_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints: 
+      - right_top_leg2bottom_leg
+    gains:
+      right_top_leg2bottom_leg: {p: 100.0, i: 0.1, d: 2.0} #10 0.1 0.01
+    constraints:
+      goal_time: 0.0
+
+  left_top_leg2bottom_leg_position_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints: 
+      - left_top_leg2bottom_leg
+    gains:
+      left_top_leg2bottom_leg: {p: 100.0, i: 0.1, d: 2.0}
+    constraints:
+      goal_time: 0.0
+
+  # LQR Controller ---------------------------------------      
+  mobile_base_controller:
+    type: lqr_controller/LQRController
+    left_wheel: left_bottom_leg2wheel
+    right_wheel: right_bottom_leg2wheel
+    control_period: 0.04      # seconds = 25 Hz
+    wheel_separation: 0.1431  # meters
+    wheel_radius: 0.05        # meters
+    cmd_vel_timeout: 0.5
+    # The first and second line of the K gain matrix
+    K_l1: [-0.535404792183603, -0.170542335288757, -0.0590995944246961, -1.31997411478221, 0.0144274962204175,  0.0186040640917079]
+    K_l2: [-0.535404792182601, -0.170542335288561,  0.0590995944246783,  -1.3199741147807,  0.014427496220351, -0.0186040640917074]
